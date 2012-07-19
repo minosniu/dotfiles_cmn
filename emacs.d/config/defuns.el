@@ -21,7 +21,7 @@
     (when (file-exists-p (concat personal ".el"))
       (load personal))))
 
-;; Arrows are common, especially in ruby
+;;; Arrows are common, especially in ruby
 (defun insert-arrow ()
   (interactive)
   (delete-horizontal-space)

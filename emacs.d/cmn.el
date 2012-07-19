@@ -26,39 +26,11 @@
 (load "cmn/mac")
 (load "cmn/server-mode")
 (load "cmn/shell-mode")
-(load "cmn/private" 'noerror)
+(load "cmn/package-manage")
 
 ;; (load "cmn/hl-line")
 ;; (load "cmn/iswitchb")
 
-
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-(defvar prelude-packages
-  '(ack-and-a-half auctex coffee-mode gist haskell-mode inf-ruby
-                   magit magithub markdown-mode paredit python
-                   solarized-theme )
-  "A list of packages to ensure are installed at launch.")
-
-(defun prelude-packages-installed-p ()
-  (loop for p in prelude-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(unless (prelude-packages-installed-p)
-  ;; check for new packages (package versions)
-  (message "%s" "Emacs Prelude is now refreshing its package database...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; install the missing packages
-  (dolist (p prelude-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
-
-(provide 'prelude-packages)
-(package-initialize)
 ;;; prelude-packages.el ends here
 
 (vendor 'vimpulse)

@@ -1,3 +1,3 @@
 [submodule "emacs.d/vendor/vimpulse"]
-  path = emacs.d/vendor/vimpulse
-  url = git://github.com/timcharper/vimpulse.git
+	path = emacs.d/vendor/vimpulse
+	url = git://github.com/timcharper/vimpulse.git

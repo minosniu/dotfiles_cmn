@@ -1,0 +1,29 @@
+[user]
+  email = minos.niu@gmail.com
+  name = C. Minos Niu
+[alias]
+  co = checkout
+  st = status
+  br = branch
+  w = whatchanged
+[apply]
+  whitespace = nowarn
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[merge]
+  summary = true
+[push]
+  default = upstream
+[remote "origin"]
+  push = HEAD
+[github]
+  user = rmm5t
+[diff]
+  ignoresubmodules = untracked
+[core]
+  excludesfile = /Users/minos001/.gitignore

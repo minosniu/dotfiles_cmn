@@ -5,12 +5,11 @@
 (add-to-list 'load-path "~/.emacs.d")
 
 ;; Enable a backtrace when problems occur
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (load "init-packages")
 (load "config-packages")
-;; (load "sync-packages")
-;; (load "cmn")
+(load "set-env")
 
 
  

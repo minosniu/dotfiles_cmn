@@ -33,6 +33,8 @@
    goto-last-change
    python-mode
    vimpulse
+   zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
+   color-theme		                ; nice looking emacs
    ))	                ; check out color-theme-solarized
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

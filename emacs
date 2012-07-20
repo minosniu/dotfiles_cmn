@@ -7,10 +7,10 @@
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
 
-(load "set-env")
+(load "init-env")
 (load "load-vendor-packages")
 (load "load-cmn-packages")
-(load "config-packages")
+(load "post-config")
 
 
  

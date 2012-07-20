@@ -13,3 +13,6 @@
 (setq exec-path (cons "/Applications/Emacs.app/Contents/MacOS/bin" exec-path))
 (setenv "PATH" (concat "/Applications/Emacs.app/Contents/MacOS/bin:" (getenv "PATH")))
 
+;; Personal information
+(setq user-full-name "C. Minos Niu")
+(setq user-mail-address "minos.niu@sangerlab.net")

@@ -16,10 +16,6 @@
 (global-set-key [(meta f2)]         'find-name-dired)
 (global-set-key [(shift f2)]        'occur)
 
-;; Keyboard macros
-(global-set-key [(shift f4)] 'kmacro-start-macro-or-insert-counter)
-;; (global-set-key [(f4)]    'kmacro-end-or-call-macro)  ;; already defined
-
 ;; Refresh-like
 (global-set-key [(f5)]         'revert-buffer)
 (global-set-key [(control f5)] 'revbufs)
@@ -84,4 +80,3 @@
 ;; Personal textmate.el bindings
 (global-set-key (kbd "C-c f") 'textmate-goto-file)
 (global-set-key [(control return)] 'textmate-next-line)
-

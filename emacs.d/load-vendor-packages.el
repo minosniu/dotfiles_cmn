@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Author: C. Minos Niu <minos.niu@gmail.com>
 ;; Created: 2012-07-19
-;; Keywords: emacs setup el-get kick-start starter-kit
+;; Description: El-get packages using provided recipes
 ;; Licence: MIT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -31,17 +31,26 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
+   flymake-cursor
+   flymake-extension
    yasnippet
    goto-last-change
    python-mode
    evil
-   elscreen
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
    color-theme-tangotango
+   rope
+   ropemacs
+   pymacs
+   tabbar
    ))	                ; check out color-theme-solarized
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Install & partially initialize the el-get maintained packages
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Combine el-get-sources and my:el-get-packages
+(setq my:el-get-packages
+      (append
+       my:el-get-packages
+       (loop for src in el-get-sources collect (el-get-source-name src))))
+
 (el-get 'sync my:el-get-packages)
+

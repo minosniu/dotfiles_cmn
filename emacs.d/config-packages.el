@@ -1,15 +1,16 @@
-(load "defuns")
+(add-to-list 'load-path "~/.emacs.d/config")
 
-;; Append to el-get-sources (global)
-;; Configuration files follow the same format as el-get recipes
-(load-n-config 'el-get-buffer-move)
-(load-n-config 'el-get-smex)
-(load-n-config 'el-get-goto-last-change)
-
-;; Combine el-get-sources and my:el-get-packages
-(setq my:el-get-packages
-      (append
-       my:el-get-packages
-       (loop for src in el-get-sources collect (el-get-source-name src))))
-
-(el-get 'sync my:el-get-packages)
+;; conf-* = Package Configurations
+(load "conf-ido")
+(load "conf-dired")
+(load "conf-recentf")
+(load "conf-org")
+;; (load "config/flymake-conf")
+;; (load "config/javascript-conf")
+;; (load "config/ri-emacs-conf")
+(load "conf-evil")
+(load "conf-color-theme")
+;; (load "config/hl-line-conf")
+(load "conf-server-mode")
+(load "conf-tabbar")
+;; (load "config/shell-mode")

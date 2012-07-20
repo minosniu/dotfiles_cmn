@@ -1,34 +1,11 @@
 ;;; Pretty colors
 
 (color-theme-initialize)
-;; (vendor 'color-theme-gnome2)
-(color-theme-tangotango)
-;; (vendor 'color-theme-ir-black)
-;; (color-theme-ir-black)
-
-;; (vendor 'color-theme-arjen)
-;; (color-theme-arjen)
-
-;; (color-theme-reset-faces)
-
-;; Color-schemes that I thought were pleasing to the eye.  Most others are
-;; pretty ugly.
-
-;; Dark Backgrounds
-;; (color-theme-dark-laptop)
-;; (color-theme-clarity)
-;; (color-theme-goldenrod)
-;; (color-theme-billw)
-
-;; Light Backgrounds
-;; (color-theme-sitaramv-nt)
-;; (color-theme-pierson)
-;; (color-theme-rotor)
-;; (color-theme-emacs-21)
-;; (color-theme-gtk-ide)
+(color-theme-blue-mood)
 
 (set-face-foreground 'region "white")
 (set-face-background 'region "slategray")
 
-;; (blink-cursor-mode)
+;;; Cursor stuff
+(blink-cursor-mode (- (*) (*) (*)))
 (set-cursor-color "orange")

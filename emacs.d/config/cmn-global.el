@@ -1,7 +1,7 @@
 ;;; Generic emacs settings I cannot live without
 
 ;; Use command as the meta key
-(setq ns-command-modifier (quote meta))
+;; (setq ns-command-modifier (quote meta))
 
 ;; Don't show the startup screen
 (setq inhibit-startup-message t)
@@ -34,7 +34,9 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 ;; Gotta see matching parens
+(setq show-paren-delay 0)
 (show-paren-mode t)
+(setq show-paren-style 'parentheses)
 
 ;; Don't truncate lines
 (setq truncate-lines t)
@@ -56,6 +58,4 @@
 
 ;; zap-up-to-char, forward-to-word, backward-to-word, etc
 (require 'misc)
-
-
 

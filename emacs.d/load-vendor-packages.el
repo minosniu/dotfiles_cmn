@@ -31,8 +31,6 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
-   flymake-cursor
-   flymake-extension
    yasnippet
    goto-last-change
    python-mode

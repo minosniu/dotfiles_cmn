@@ -3,6 +3,7 @@
 ;; cmn-* = Personal Preferences
 (load "cmn-env")
 (load "cmn-global")
+(load "cmn-flymake")
 (load "cmn-bindings")
 (load "cmn-screen")
 (load "cmn-tabs")

@@ -5,7 +5,7 @@
 (add-to-list 'load-path "~/.emacs.d")
 
 ;; Enable a backtrace when problems occur
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (load "set-env")
 (load "load-vendor-packages")

@@ -2,9 +2,9 @@
 
 ;; Append to el-get-sources (global)
 ;; Configuration files follow the same format as el-get recipes
-(load-n-config 'buffer-move)
-(load-n-config 'smex)
-(load-n-config 'goto-last-change)
+(load-n-config 'el-get-buffer-move)
+(load-n-config 'el-get-smex)
+(load-n-config 'el-get-goto-last-change)
 
 ;; Combine el-get-sources and my:el-get-packages
 (setq my:el-get-packages

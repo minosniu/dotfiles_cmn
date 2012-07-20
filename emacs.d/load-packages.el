@@ -32,7 +32,8 @@
    yasnippet
    goto-last-change
    python-mode
-   vimpulse
+   evil
+   elscreen
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
    ))	                ; check out color-theme-solarized

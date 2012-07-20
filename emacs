@@ -7,7 +7,7 @@
 ;; Enable a backtrace when problems occur
 ;; (setq debug-on-error t)
 
-(load "init-packages")
+(load "load-packages")
 (load "config-packages")
 (load "set-env")
 

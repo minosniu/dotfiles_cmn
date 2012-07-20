@@ -31,8 +31,8 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
+   color-theme
    goto-last-change
-   ido-ubiquitous
    evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs

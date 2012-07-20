@@ -17,8 +17,6 @@
   pager = true
 [merge]
   summary = true
-[push]
-  default = upstream
 [remote "origin"]
   push = HEAD
 [github]

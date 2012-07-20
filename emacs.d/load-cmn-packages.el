@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (load "defuns")
+(add-to-list 'load-path "~/.emacs.d/custom-recipes")
 
 ;; Append to el-get-sources (global)
 ;; Configuration files follow the same format as el-get recipes

@@ -6,7 +6,7 @@
 
 (defun load-n-config (library &rest autoload-functions)
   (let* ((file (symbol-name library))
-         (normal (concat "~/.emacs.d/config/" file))
+         (normal (concat "~/.emacs.d/custom-recipes/" file))
          (suffix (concat normal ".el"))
 	 (found nil))
     (cond

@@ -61,3 +61,5 @@
 ;; zap-up-to-char, forward-to-word, backward-to-word, etc
 (require 'misc)
 
+;; Version Control in general 
+;; (setq vc-handled-backends '(Git Hg)) 

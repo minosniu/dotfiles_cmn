@@ -31,17 +31,19 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
-   yasnippet
    goto-last-change
-   python-mode
+   ido-ubiquitous
    evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
+   tabbar
+   haskell-mode
+   auto-complete
+   python-mode
+   yasnippet
    rope
    ropemacs
    pymacs
-   tabbar
-   haskell-mode
    ))	                ; check out color-theme-solarized
 
 ;; Combine el-get-sources and my:el-get-packages

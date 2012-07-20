@@ -1,8 +1,8 @@
 ;;; Pretty colors
 
 (color-theme-initialize)
-(vendor 'color-theme-gnome2)
-(color-theme-gnome2)
+;; (vendor 'color-theme-gnome2)
+(color-theme-mac-classic)
 ;; (vendor 'color-theme-ir-black)
 ;; (color-theme-ir-black)
 

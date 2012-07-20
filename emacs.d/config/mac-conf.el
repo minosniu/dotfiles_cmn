@@ -10,7 +10,5 @@
     (setq mouse-wheel-scroll-amount '(0.01)))
   (setq mac-allow-anti-aliasing t)
   (setq mac-command-modifier 'meta)
+  (setq ns-pop-up-frames nil)
   (setq mac-option-modifier 'none))
-
-
-

@@ -22,7 +22,7 @@
 ;; (load "config/ri-emacs-conf")
 (load "mac-conf")
 (load "evil-conf")
+(load "conf-color-theme")
 ;; (load "config/hl-line-conf")
-;; (load "config/server-mode-conf")
+(load "config/server-mode-conf")
 ;; (load "config/shell-mode")
-

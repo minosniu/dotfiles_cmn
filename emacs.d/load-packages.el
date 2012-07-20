@@ -36,7 +36,7 @@
    elscreen
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
-   color-theme-mac-classic		                ; nice looking emacs
+   color-theme-tangotango
    ))	                ; check out color-theme-solarized
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

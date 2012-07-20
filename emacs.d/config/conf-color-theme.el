@@ -2,7 +2,7 @@
 
 (color-theme-initialize)
 ;; (vendor 'color-theme-gnome2)
-(color-theme-mac-classic)
+(color-theme-tangotango)
 ;; (vendor 'color-theme-ir-black)
 ;; (color-theme-ir-black)
 

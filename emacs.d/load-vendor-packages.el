@@ -41,6 +41,7 @@
    ropemacs
    pymacs
    tabbar
+   haskell-mode
    ))	                ; check out color-theme-solarized
 
 ;; Combine el-get-sources and my:el-get-packages

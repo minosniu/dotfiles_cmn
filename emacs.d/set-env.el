@@ -8,6 +8,7 @@
 (load "cmn-screen")
 (load "cmn-tabs")
 (load "cmn-disabled")
+(load "cmn-hl-line")
 (load "cmn-fonts")
 (load "cmn-utf-8")
 (load "cmn-scratch")

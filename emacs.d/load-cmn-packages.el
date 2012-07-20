@@ -9,6 +9,7 @@
 (load-n-config 'el-get-buffer-move)
 (load-n-config 'el-get-smex)
 (load-n-config 'el-get-goto-last-change)
+(load-n-config 'el-get-maxframe)
 
 ;; Combine el-get-sources and my:el-get-packages
 (setq my:el-get-packages

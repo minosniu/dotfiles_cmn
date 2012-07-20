@@ -1,6 +1,10 @@
 ;; full screen
-(defun fullscreen ()
+
+(defvar maxframe-maximized-p nil "maxframe is in fullscreen mode")
+(defun toggle-maxframe ()
+  "Toggle maximized frame"
   (interactive)
-  (set-frame-parameter nil 'fullscreen
-		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
-(global-set-key [M-f11] 'fullscreen)
+  (setq maxframe-maximized-p (not maxframe-maximized-p))
+  (cond (maxframe-maximized-p (maximize-frame))
+        (t (restore-frame))))
+(global-set-key "\M-\r" 'toggle-maxframe)

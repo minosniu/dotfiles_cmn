@@ -2,6 +2,8 @@
 
 ;; Use command as the meta key
 ;; (setq ns-command-modifier (quote meta))
+;; Display line number on the side
+(global-linum-mode t)
 
 ;; Don't show the startup screen
 (setq inhibit-startup-message t)

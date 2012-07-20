@@ -1,8 +1,10 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Author: C. Minos Niu <minos.niu@gmail.com>
 ;; Created: 2012-07-19
 ;; Keywords: emacs setup el-get kick-start starter-kit
 ;; Licence: MIT
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (require 'cl)				; common lisp goodies, loop
@@ -43,4 +45,3 @@
 ;; Install & partially initialize the el-get maintained packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (el-get 'sync my:el-get-packages)
-

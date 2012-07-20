@@ -30,5 +30,5 @@
 (set-face-foreground 'region "white")
 (set-face-background 'region "slategray")
 
-(blink-cursor-mode)
+;; (blink-cursor-mode)
 (set-cursor-color "orange")

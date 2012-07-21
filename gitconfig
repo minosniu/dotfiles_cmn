@@ -24,4 +24,4 @@
 [diff]
   ignoresubmodules = untracked
 [core]
-  excludesfile = /Users/minos001/.gitignore
+  excludesfile = ~/.gitignore

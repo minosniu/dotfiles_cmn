@@ -1,16 +1,16 @@
 
 ;; ----- smex-history -----
 (
+ el-get-reinstall
  cd
  mf
  5x5
  arp
  dbx
  dig
- erc
 )
 
 ;; ----- smex-data -----
 (
- 
+ (el-get-reinstall . 1)
 )

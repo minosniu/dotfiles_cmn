@@ -35,7 +35,7 @@
    goto-last-change
    evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
-   color-theme		                ; nice looking emacs
+   ;; color-theme		                ; nice looking emacs
    tabbar
    haskell-mode
    auto-complete
@@ -44,6 +44,7 @@
    rope
    ropemacs
    pymacs
+   color-theme-zenburn
    ))	                ; check out color-theme-solarized
 
 ;; Combine el-get-sources and my:el-get-packages

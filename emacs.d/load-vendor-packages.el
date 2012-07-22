@@ -35,10 +35,7 @@
    goto-last-change
    evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
-<<<<<<< HEAD
    ;; color-theme		                ; nice looking emacs
-=======
->>>>>>> Now tracking color-theme
    tabbar
    haskell-mode
    auto-complete

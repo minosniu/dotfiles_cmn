@@ -1,0 +1,10 @@
+(:name color-theme
+       :description "Colors"
+       :type github
+       :load "color-theme.el"
+       :url "https://github.com/minos001/color-theme-cmn.git"
+       :features "color-theme"
+       :post-init (progn
+                    (color-theme-initialize)
+                    (setq color-theme-is-global t))
+       )

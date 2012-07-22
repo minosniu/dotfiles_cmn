@@ -1,16 +1,29 @@
 
 ;; ----- smex-history -----
 (
+<<<<<<< HEAD
  el-get-reinstall
+=======
+ color-theme-lethe
+ color-theme-blue-mood
+>>>>>>> Now tracking color-theme
  cd
  mf
  5x5
  arp
  dbx
+<<<<<<< HEAD
  dig
+=======
+>>>>>>> Now tracking color-theme
 )
 
 ;; ----- smex-data -----
 (
+<<<<<<< HEAD
  (el-get-reinstall . 1)
+=======
+ (color-theme-blue-mood . 1)
+ (color-theme-lethe . 1)
+>>>>>>> Now tracking color-theme
 )

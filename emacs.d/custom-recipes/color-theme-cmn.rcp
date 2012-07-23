@@ -1,8 +1,8 @@
-(:name color-theme
+(:name color-theme-cmn
        :description "Colors"
-       :type github
-       :load "color-theme.el"
        :url "https://github.com/minos001/color-theme-cmn.git"
+       :type git
+       :load "color-theme.el"
        :features "color-theme"
        :post-init (progn
                     (color-theme-initialize)

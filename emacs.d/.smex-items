@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  cd
+ df
+ lm
  mf
  5x5
+ all
  arp
- dbx
- dig
- erc
 )
 
 ;; ----- smex-data -----

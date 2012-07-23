@@ -2,14 +2,15 @@
 ;;; El-get packages using personal recipes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(load "defuns")
+;; (load "defuns")
+(require 'defuns)
 (add-to-list 'load-path "~/.emacs.d/custom-recipes")
 
 ;; Append to el-get-sources (global)
 ;; Configuration files follow the same format as el-get recipes
 (load-n-config 'el-get-buffer-move)
 (load-n-config 'el-get-smex)
-(load-n-config 'el-get-goto-last-change)
+(safe-wrap (load-n-config 'el-get-goto-last-change))
 (load-n-config 'el-get-maxframe)
 
 ;; Combine el-get-sources and my:el-get-packages

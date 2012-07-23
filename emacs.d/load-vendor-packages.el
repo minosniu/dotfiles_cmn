@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (require 'cl)				; common lisp goodies, loop
+(require 'defuns)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Install el-get if non-exist
@@ -28,10 +29,13 @@
 ;; Packages to be fetched
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'el-get-recipes)
+(add-to-list 'el-get-recipe-path "~/.emacs.d/custom-recipes")
+
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
-   color-theme
+   color-theme-cmn
    goto-last-change
    evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
@@ -44,7 +48,6 @@
    rope
    ropemacs
    pymacs
-   color-theme-zenburn
    ))	                ; check out color-theme-solarized
 
 ;; Combine el-get-sources and my:el-get-packages
@@ -53,5 +56,5 @@
        my:el-get-packages
        (loop for src in el-get-sources collect (el-get-source-name src))))
 
-(el-get 'sync my:el-get-packages)
+(try-error (el-get 'sync my:el-get-packages) (error "somewhere in vendor"))
 

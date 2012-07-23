@@ -26,35 +26,40 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Packages to be fetched
+;; No config packages, only for fetching & enabling
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'el-get-recipes)
-(add-to-list 'el-get-recipe-path "~/.emacs.d/custom-recipes")
-
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
-   color-theme-cmn
-   goto-last-change
-   evil
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
-   ;; color-theme		                ; nice looking emacs
-   tabbar
    haskell-mode
-   auto-complete
-   python-mode
-   yasnippet
    rope
    ropemacs
    pymacs
+   ;; color-theme		                ; nice looking emacs
    ))	                ; check out color-theme-solarized
 
-;; Combine el-get-sources and my:el-get-packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Packages with personal configurations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load-n-config 'conf-smex)
+(load-n-config 'conf-yasnippet)
+(load-n-config 'conf-auto-complete)
+(load-n-config 'conf-evil)
+(load-n-config 'conf-goto-last-change)
+(load-n-config 'conf-python-mode)
+(load-n-config 'conf-buffer-move)
+(load-n-config 'conf-tabbar)
+(load-n-config 'conf-color-theme-cmn) ;; Hosted by myself, el-get recipe failed
+(load-n-config 'conf-maxframe) ;; Hosted by myself, el-get recipe failed
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Call el-get to execute the installations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq my:el-get-packages
       (append
        my:el-get-packages
        (loop for src in el-get-sources collect (el-get-source-name src))))
 
-(try-error (el-get 'sync my:el-get-packages) (error "somewhere in vendor"))
+(el-get 'sync my:el-get-packages)
 

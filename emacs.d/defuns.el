@@ -4,9 +4,9 @@
       (insert-file-contents file)
       (read (current-buffer))))
 
-(defun load-n-config (library &rest autoload-functions)
-  (let* ((file (symbol-name library))
-         (normal (concat "~/.emacs.d/custom-recipes/" file))
+(defun load-n-config (recipe)
+  (let* ((file (symbol-name recipe))
+         (normal (concat "~/.emacs.d/package-configs/" file))
          (suffix (concat normal ".el"))
 	 (found nil))
     (cond
@@ -14,7 +14,8 @@
      ((file-directory-p suffix) (add-to-list 'load-path suffix) (set 'found t))
      ((file-exists-p suffix)  (set 'found t)))
     (when found
-      (add-to-list 'el-get-sources (file-string suffix)))
+      (add-to-list 'el-get-sources (file-string suffix))
+      )
     )) 
 
 (defmacro try-error (fn &rest clean-up)

@@ -8,10 +8,9 @@
 
 ;; Append to el-get-sources (global)
 ;; Configuration files follow the same format as el-get recipes
-(load-n-config 'el-get-buffer-move)
-(load-n-config 'el-get-smex)
-(safe-wrap (load-n-config 'el-get-goto-last-change))
-(load-n-config 'el-get-maxframe)
+;; (load-n-config 'el-get-buffer-move)
+;; (load-n-config 'el-get-maxframe)
+;; (try-error (load-n-config 'el-get-color-theme-cmn))
 
 ;; Combine el-get-sources and my:el-get-packages
 (setq my:el-get-packages

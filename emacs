@@ -9,9 +9,9 @@
 (setq debug-on-error t)
 
 (load "init-env")
-(try-error (load "load-vendor-packages") (error "Failed loading vendor-packages"))
-(try-error (load "load-cmn-packages") (error "Failed loading cmn-packages"))
-(try-error (load "post-config") (error "Failed configuring packages"))
+(try-error (load "load-vendor-packages") (message "Done loading vendor packages!"))
+;; (try-error (load "load-cmn-packages") (message "Done loading personal packages!"))
+;; (try-error (load "post-config") (message "Configured all packages!"))
 
 
  

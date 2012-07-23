@@ -19,3 +19,8 @@
 (try-error (load "pref-diff"))
 (try-error (load "pref-mac"))
 
+(try-error (load "pref-ido"))
+(try-error (load "pref-dired"))
+(try-error (load "pref-recentf"))
+(try-error (load "pref-org"))
+(try-error (load "pref-server-mode"))

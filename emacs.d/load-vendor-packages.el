@@ -36,6 +36,7 @@
    rope
    ropemacs
    pymacs
+   pycomplete+
    ;; color-theme		                ; nice looking emacs
    ))	                ; check out color-theme-solarized
 

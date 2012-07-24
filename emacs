@@ -6,7 +6,7 @@
 (require 'defuns)
 
 ;; Enable a backtrace when problems occur
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (load "init-env")
 (try-error (load "load-vendor-packages") (message "Done loading vendor packages!"))

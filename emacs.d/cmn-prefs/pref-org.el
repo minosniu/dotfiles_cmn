@@ -20,3 +20,19 @@
 ;;       '((?n "* %U %?" "~/org/inbox.org")))
 ;; (setq remember-annotation-functions '(org-remember-annotation))
 ;; (setq remember-handler-functions '(org-remember-handler))
+(setq org-hide-leading-stars t)
+(setq-default ispell-program-name "aspell")
+(setq-default ispell-local-dictionary "american")
+(global-set-key (kbd "") 'ispell-complete-word)
+
+;; Adding spell check for org-mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            ;; yasnippet
+            (make-variable-buffer-local 'yas/trigger-key)
+            (setq yas/trigger-key [tab])
+            (define-key yas/keymap [tab] 'yas/next-field-group)
+            ;; flyspell mode to spell check everywhere
+            (flyspell-mode 1)))
+
+

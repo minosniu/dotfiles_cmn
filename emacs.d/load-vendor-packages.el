@@ -48,7 +48,7 @@
 (load-n-config 'conf-auto-complete)
 (load-n-config 'conf-evil)
 (load-n-config 'conf-goto-last-change)
-(load-n-config 'conf-python-mode)
+;;(load-n-config 'conf-python-mode)
 (load-n-config 'conf-buffer-move)
 (load-n-config 'conf-tabbar)
 (load-n-config 'conf-color-theme-cmn) ;; Hosted by myself, el-get recipe failed

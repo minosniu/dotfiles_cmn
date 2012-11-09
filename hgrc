@@ -1,0 +1,2 @@
+[merge-tools]
+meld.args = $local $other

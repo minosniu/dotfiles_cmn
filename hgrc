@@ -1,2 +1,9 @@
+[ui]
+username = C. Minos Niu
+
+
+[extensions]
+largefiles =
+
 [merge-tools]
-meld.args = $local $other
+meld.args = $base $local $other

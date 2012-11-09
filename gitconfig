@@ -25,3 +25,9 @@
   ignoresubmodules = untracked
 [core]
   excludesfile = ~/.gitignore
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 700x550+692+65
+	history-view-vpane-position = 927
+	main-window-view = HistoryView
+	file-view-vpane-position = 979

@@ -28,8 +28,6 @@ conditionally_prefix_path ~/bin/private
 conditionally_prefix_path ~/.rbenv/bin
 conditionally_prefix_path ~/.rbenv/shims
 
-PATH=.:./bin:${PATH}
-
 ############################################################
 ## MANPATH
 ############################################################

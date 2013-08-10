@@ -99,6 +99,9 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
+" Use system clipboard by defailt, no need for "+y for yanking
+set clipboard=unnamed
+
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 

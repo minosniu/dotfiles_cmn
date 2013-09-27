@@ -11,8 +11,8 @@ fi
 ############################################################
 
 function conditionally_prefix_path {
-  local dir=$1
-  if [ -d $dir ]; then
+  local dir="$1"
+  if [ -d "$dir" ]; then
     PATH="$dir:${PATH}"
   fi
 }
@@ -27,6 +27,8 @@ conditionally_prefix_path ~/bin
 conditionally_prefix_path ~/bin/private
 conditionally_prefix_path ~/.rbenv/bin
 conditionally_prefix_path ~/.rbenv/shims
+conditionally_prefix_path "/Applications/Racket v5.3.6/bin"
+conditionally_prefix_path ~/.rvm/bin 
 
 ############################################################
 ## MANPATH
@@ -179,3 +181,4 @@ if [[ "$USER" == '' ]]; then
   # mainly for cygwin terminals. set USER env var if not already set
   USER=$USERNAME
 fi
+

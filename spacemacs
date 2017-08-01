@@ -313,17 +313,17 @@ you should place your code here."
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   (setq org-startup-truncated nil)
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file+headline "~/Dropbox/cmn.Stuff/inbox.org" "Tasks")
+                                 (file+headline "~/Dropbox/GTD/inbox.org" "Tasks")
                                  "* TODO %i%?")
                                 ("T" "Tickler" entry
-                                 (file+headline "~/Dropbox/cmn.Stuff/tickler.org" "Tickler")
+                                 (file+headline "~/Dropbox/GTD/tickler.org" "Tickler")
                                  "* %i%? \n %U")))
-  (setq org-agenda-files '("~/Dropbox/cmn.Stuff/gtd.org"
-                           "~/Dropbox/cmn.Stuff/someday.org"
-                           "~/Dropbox/cmn.Stuff/tickler.org" ))
-  (setq org-refile-targets '(("~/Dropbox/cmn.Stuff/gtd.org" :maxlevel . 3)
-                             ("~/Dropbox/cmn.Stuff/someday.org" :level . 1)
-                             ("~/Dropbox/cmn.Stuff/tickler.org" :maxlevel . 2)))
+  (setq org-agenda-files '("~/Dropbox/GTD/gtd.org"
+                           "~/Dropbox/GTD/someday.org"
+                           "~/Dropbox/GTD/tickler.org" ))
+  (setq org-refile-targets '(("~/Dropbox/GTD/gtd.org" :maxlevel . 3)
+                             ("~/Dropbox/GTD/someday.org" :level . 1)
+                             ("~/Dropbox/GTD/tickler.org" :maxlevel . 2)))
   (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
 
   (defun org-current-is-todo ()

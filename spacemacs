@@ -326,41 +326,6 @@ you should place your code here."
   (setq org-refile-targets '(("~/Dropbox/GTD/gtd.org" :maxlevel . 3)
                              ("~/Dropbox/GTD/someday.org" :level . 1)
                              ("~/Dropbox/GTD/tickler.org" :maxlevel . 2)))
-  (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-
-  (defun org-current-is-todo ()
-    (string= "TODO" (org-get-todo-state)))
-
-  (defun my-org-agenda-skip-all-siblings-but-first ()
-    "Skip all but the first non-done entry."
-    (let (should-skip-entry)
-      (unless (org-current-is-todo)
-        (setq should-skip-entry t))
-      (save-excursion
-        (while (and (not should-skip-entry) (org-goto-sibling t))
-          (when (org-current-is-todo)
-            (setq should-skip-entry t))))
-      (when should-skip-entry
-        (or (outline-next-heading)
-            (goto-char (point-max))))))
-
-  (setq org-agenda-custom-commands
-        '(("hm" "At home" tags-todo "@home"
-           ((org-agenda-overriding-header "Home")
-            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-          ("dn" "At Ruijin Dongnan campus" tags-todo "@dongnan"
-           ((org-agenda-overriding-header "Dongnan")
-            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-          ("rj" "At Ruijin main campus" tags-todo "@ruijin"
-           ((org-agenda-overriding-header "Ruijin")
-            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-          ("c" "At computer" tags-todo "@computer"
-           ((org-agenda-overriding-header "Computer")
-            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
-          ("x" "At MedX" tags-todo "@medx"
-           ((org-agenda-overriding-header "MedX")
-            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first))))
-        )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

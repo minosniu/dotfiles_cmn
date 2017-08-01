@@ -132,8 +132,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+   dotspacemacs-default-font '("Menlo:pixelsize=18"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -309,8 +309,53 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (define-key global-map (kbd "C-=") 'text-scale-increase)
-  (define-key global-map (kbd "C--") 'text-scale-decrease)
+  ;; Org-mode configurations for GTD
+  ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+  (setq org-startup-truncated nil)
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                 (file+headline "~/Dropbox/cmn.Stuff/inbox.org" "Tasks")
+                                 "* TODO %i%?")
+                                ("T" "Tickler" entry
+                                 (file+headline "~/Dropbox/cmn.Stuff/tickler.org" "Tickler")
+                                 "* %i%? \n %U")))
+  (setq org-agenda-files '("~/Dropbox/cmn.Stuff/gtd.org"
+                           "~/Dropbox/cmn.Stuff/someday.org"
+                           "~/Dropbox/cmn.Stuff/tickler.org" ))
+  (setq org-refile-targets '(("~/Dropbox/cmn.Stuff/gtd.org" :maxlevel . 3)
+                             ("~/Dropbox/cmn.Stuff/someday.org" :level . 1)
+                             ("~/Dropbox/cmn.Stuff/tickler.org" :maxlevel . 2)))
+  (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+  (defun org-current-is-todo ()
+    (string= "TODO" (org-get-todo-state)))
+
+  (defun my-org-agenda-skip-all-siblings-but-first ()
+    "Skip all but the first non-done entry."
+    (let (should-skip-entry)
+      (unless (org-current-is-todo)
+        (setq should-skip-entry t))
+      (save-excursion
+        (while (and (not should-skip-entry) (org-goto-sibling t))
+          (when (org-current-is-todo)
+            (setq should-skip-entry t))))
+      (when should-skip-entry
+        (or (outline-next-heading)
+            (goto-char (point-max))))))
+
+  (setq org-agenda-custom-commands
+        '(("hm" "At home" tags-todo "@home"
+           ((org-agenda-overriding-header "Home")
+            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          ("dn" "At Ruijin Dongnan campus" tags-todo "@dongnan"
+           ((org-agenda-overriding-header "Dongnan")
+            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          ("rj" "At Ruijin main campus" tags-todo "@ruijin"
+           ((org-agenda-overriding-header "Ruijin")
+            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+          ("x" "At Med-X" tags-todo "@medx"
+           ((org-agenda-overriding-header "Med-X")
+            (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first))))
+        )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

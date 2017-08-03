@@ -311,6 +311,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq window-combination-resize nil)
   ;; Org-mode configurations for GTD
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   (setq org-startup-truncated nil)

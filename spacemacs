@@ -330,7 +330,6 @@ you should place your code here."
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   (setq org-startup-truncated nil)
   ;; As of 03-04-2020, org-mode-capture failed to launch as before
-  ;; As of 03-04-2020, org-mode-capture failed to launch as before
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                  (file+headline "~/Dropbox/GTD/inbox.org" "Tasks")
                                  "* TODO %i%?")

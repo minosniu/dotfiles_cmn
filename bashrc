@@ -191,3 +191,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 ### NVM configuration
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+ }

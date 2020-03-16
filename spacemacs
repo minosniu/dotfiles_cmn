@@ -347,7 +347,10 @@ you should place your code here."
   (setq org-agenda-files '("~/Code/local-org-files/"))
   (setq org-refile-targets '((todo-file-path :maxlevel . 3)
                              (someday-file-path :level . 1)
+                             (org-default-notes-file-path :level . 1)
                              (tickler-file-path :maxlevel . 2)))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)

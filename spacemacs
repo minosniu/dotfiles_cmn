@@ -323,6 +323,9 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq package-check-signature nil)
   (setq window-combination-resize nil)
+  (global-visual-line-mode t)
+  (evil-define-minor-mode-key 'motion 'visual-line-mode "j" 'evil-next-visual-line)
+  (evil-define-minor-mode-key 'motion 'visual-line-mode "k" 'evil-previous-visual-line)
   (setq-default git-magit-status-fullscreen t)
   ;; Org-mode configurations for GTD
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html

@@ -42,7 +42,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; javascript
+     javascript
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-snippets-in-popup t
@@ -51,11 +51,7 @@ values."
      emacs-lisp
      git
      finance ;; ledger-mode
-     (org :variables
-          org-enable-org-journal-support t)
-     org-roam
-     org-roam-server
-     deft
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -68,10 +64,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages
-   '(
-     
-     )
+   dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -340,20 +333,20 @@ you should place your code here."
   (setq-default git-magit-status-fullscreen t)
   ;; Org-mode configurations for GTD
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-  (setq org-journal-dir "~/OneDrive - edy/cmn.Recurring/org-roam-notes")
-  (setq org-journal-date-prefix "#+TITLE: ")
-  (setq org-journal-file-format "%Y-%m-%d.org")
-  (setq org-journal-date-format "%A, %d %B %Y")
   (setq org-startup-truncated nil)
   (let ((default-directory "~/Code/local-org-files/"))
+    (setq org-default-notes-file-path (expand-file-name "notes.org"))
     (setq inbox-file-path (expand-file-name "inbox.org"))
     (setq todo-file-path (expand-file-name "gtd.org"))
     (setq someday-file-path (expand-file-name "someday.org"))
     (setq tickler-file-path (expand-file-name "tickler.org"))
     )
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file inbox-file-path)
+                                 (file+headline inbox-file-path "Tasks")
                                  "* TODO %i%?")
+                                ("n" "Notes [inbox]" entry
+                                 (file+headline org-default-notes-file-path "Notes")
+                                 "* %i%?")
                                 ("T" "Tickler" entry
                                  (file+headline tickler-file-path "Tickler")
                                  "* %i%? \n %U")))
@@ -361,6 +354,7 @@ you should place your code here."
   (setq org-agenda-files '("~/Code/local-org-files/"))
   (setq org-refile-targets '((todo-file-path :maxlevel . 3)
                              (someday-file-path :level . 1)
+                             (org-default-notes-file-path :level . 1)
                              (tickler-file-path :maxlevel . 2)))
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)
@@ -373,40 +367,20 @@ you should place your code here."
      (ruby . t)
      (dot . t)
      ))
-  ;; Org-roam setup
-  ;; (use-package org-roam-server
-  ;;   :ensure t)
-  (require 'org-roam-protocol)
-  (setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
-  ;; Deft
-  (setq deft-directory org-journal-dir)
-  (setq deft-extensions '("org" "md" "txt"))
-  (setq deft-recursive t)
-  (setq deft-use-filter-string-for-filename t)
-  (setq deft-default-extension "org")
-  
-  ;; Emacs server
-  (require 'server)
-  (unless (server-running-p) (server-start))
   )
 
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yapfify ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package typit treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tagedit symon symbol-overlay sudoku string-inflection spaceline-all-the-icons smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements pcre2el password-generator paradox pacmacs overseer orgit org-roam org-projectile org-present org-pomodoro org-mime org-journal org-download org-cliplink org-bullets org-brain open-junk-file nodejs-repl nameless move-text mmm-mode markdown-toc magit-svn magit-section magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-ledger evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emr emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs deft define-word cython-mode company-web company-statistics company-quickhelp company-anaconda column-enforce-mode clojure-snippets clean-aindent-mode cider-eval-sexp-fu cider centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell 2048-game))))
+    (gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-)

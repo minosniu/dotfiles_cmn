@@ -52,6 +52,7 @@ values."
      git
      finance ;; ledger-mode
      org
+     org-roam
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -64,7 +65,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     
+     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -86,8 +90,12 @@ You should not put any user code in there besides modifying the variable
 values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
-  (setq configuration-layer--elpa-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                                             ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+  ;; (setq configuration-layer--elpa-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+  ;;                                            ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq-default
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
@@ -145,7 +153,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Menlo:pixelsize=18"
-                               :size 15
+                               :size 17
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -338,7 +346,7 @@ you should place your code here."
     (setq tickler-file-path (expand-file-name "tickler.org"))
     )
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file+headline inbox-file-path "Tasks")
+                                 (file inbox-file-path)
                                  "* TODO %i%?")
                                 ("n" "Notes [inbox]" entry
                                  (file+headline org-default-notes-file-path "Notes")
@@ -375,7 +383,7 @@ you should place your code here."
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
+    (org-roam emacsql-sqlite emacsql org-evil org-projectile gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

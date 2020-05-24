@@ -42,7 +42,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     javascript
+     ;; javascript
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-snippets-in-popup t
@@ -51,7 +51,8 @@ values."
      emacs-lisp
      git
      finance ;; ledger-mode
-     org
+     (org :variables
+          org-enable-org-journal-support t)
      org-roam
      deft
      ;; (shell :variables
@@ -338,6 +339,10 @@ you should place your code here."
   (setq-default git-magit-status-fullscreen t)
   ;; Org-mode configurations for GTD
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
+  (setq org-journal-dir "~/Code/local-roam-notes/")
+  (setq org-journal-date-prefix "#+TITLE: ")
+  (setq org-journal-file-format "%Y-%m-%d.org")
+  (setq org-journal-date-format "%A, %d %B %Y")
   (setq org-startup-truncated nil)
   (let ((default-directory "~/Code/local-org-files/"))
     (setq org-default-notes-file-path (expand-file-name "notes.org"))
@@ -379,6 +384,9 @@ you should place your code here."
   ;; Deft
   (setq deft-directory "~/Code/local-roam-notes/")
   (setq deft-extensions '("org" "md" "txt"))
+  (setq deft-recursive t)
+  (setq deft-use-filter-string-for-filename t)
+  (setq deft-default-extension "org")
   ;; Emacs server
   (require 'server)
   (unless (server-running-p) (server-start))
@@ -401,3 +409,24 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
+ '(package-selected-packages
+   (quote
+    (deft org-roam-bibtex company-org-roam flyspell-correct-helm flyspell-correct auto-dictionary org-roam emacsql-sqlite emacsql org-evil org-projectile gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)

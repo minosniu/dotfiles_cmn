@@ -387,6 +387,8 @@ you should place your code here."
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)
   (setq deft-default-extension "org")
+  (use-package org-roam-server
+    :ensure t)
   ;; Emacs server
   (require 'server)
   (unless (server-running-p) (server-start))

@@ -345,7 +345,6 @@ you should place your code here."
   (setq org-journal-date-format "%A, %d %B %Y")
   (setq org-startup-truncated nil)
   (let ((default-directory "~/Code/local-org-files/"))
-    (setq org-default-notes-file-path (expand-file-name "notes.org"))
     (setq inbox-file-path (expand-file-name "inbox.org"))
     (setq todo-file-path (expand-file-name "gtd.org"))
     (setq someday-file-path (expand-file-name "someday.org"))
@@ -354,9 +353,6 @@ you should place your code here."
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                  (file inbox-file-path)
                                  "* TODO %i%?")
-                                ("n" "Notes [inbox]" entry
-                                 (file+headline org-default-notes-file-path "Notes")
-                                 "* %i%?")
                                 ("T" "Tickler" entry
                                  (file+headline tickler-file-path "Tickler")
                                  "* %i%? \n %U")))
@@ -364,7 +360,6 @@ you should place your code here."
   (setq org-agenda-files '("~/Code/local-org-files/"))
   (setq org-refile-targets '((todo-file-path :maxlevel . 3)
                              (someday-file-path :level . 1)
-                             (org-default-notes-file-path :level . 1)
                              (tickler-file-path :maxlevel . 2)))
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)

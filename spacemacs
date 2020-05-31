@@ -54,6 +54,7 @@ values."
      (org :variables
           org-enable-org-journal-support t)
      org-roam
+     org-roam-server
      deft
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -373,39 +374,22 @@ you should place your code here."
      (dot . t)
      ))
   ;; Org-roam setup
+  ;; (use-package org-roam-server
+  ;;   :ensure t)
   (require 'org-roam-protocol)
   (setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
-  ;; (setq org-roam-graph-viewer "/Users/minosniu/Code/platypus-org-roam/OrgProtocol.app/Contents/MacOS/Launch Emacs")
   ;; Deft
   (setq deft-directory "~/Code/local-roam-notes/")
   (setq deft-extensions '("org" "md" "txt"))
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)
   (setq deft-default-extension "org")
-  (use-package org-roam-server
-    :ensure t)
+  
   ;; Emacs server
   (require 'server)
   (unless (server-running-p) (server-start))
   )
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-export-backends (quote (ascii html icalendar latex md odt)))
- '(package-selected-packages
-   (quote
-    (deft org-roam-bibtex company-org-roam flyspell-correct-helm flyspell-correct auto-dictionary org-roam emacsql-sqlite emacsql org-evil org-projectile gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -416,10 +400,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-export-backends (quote (ascii html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (deft org-roam-bibtex company-org-roam flyspell-correct-helm flyspell-correct auto-dictionary org-roam emacsql-sqlite emacsql org-evil org-projectile gnu-elpa-keyring-update company-quickhelp pos-tip typit mmt sudoku pacmacs 2048-game helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-anaconda company clojure-snippets auto-yasnippet ac-ispell auto-complete grip-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode tern org-projectile-helm git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl org-drill evil-ledger ledger-mode smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link magit git-commit with-editor transient evil-magit adaptive-wrap lv parseedn parseclj a org-mime flx highlight anzu diminish sesman pkg-info epl bind-map bind-key popup f powerline dash-functional projectile iedit smartparens s livid-mode skewer-mode js2-refactor web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc coffee-mode packed helm helm-core parent-mode goto-chg evil avy async hydra dash yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode markdown-toc mmm-mode markdown-mode gh-md org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line))))
+    (yasnippet-snippets yapfify ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package typit treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tagedit symon symbol-overlay sudoku string-inflection spaceline-all-the-icons smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements pcre2el password-generator paradox pacmacs overseer orgit org-roam org-projectile org-present org-pomodoro org-mime org-journal org-download org-cliplink org-bullets org-brain open-junk-file nodejs-repl nameless move-text mmm-mode markdown-toc magit-svn magit-section magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-package flycheck-elsa flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-ledger evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emr emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode diminish devdocs deft define-word cython-mode company-web company-statistics company-quickhelp company-anaconda column-enforce-mode clojure-snippets clean-aindent-mode cider-eval-sexp-fu cider centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

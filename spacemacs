@@ -340,7 +340,7 @@ you should place your code here."
   (setq-default git-magit-status-fullscreen t)
   ;; Org-mode configurations for GTD
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
-  (setq org-journal-dir "~/Code/local-roam-notes/")
+  (setq org-journal-dir "~/OneDrive - edy/cmn.Recurring/org-roam-notes")
   (setq org-journal-date-prefix "#+TITLE: ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-date-format "%A, %d %B %Y")
@@ -379,7 +379,7 @@ you should place your code here."
   (require 'org-roam-protocol)
   (setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
   ;; Deft
-  (setq deft-directory "~/Code/local-roam-notes/")
+  (setq deft-directory org-journal-dir)
   (setq deft-extensions '("org" "md" "txt"))
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)

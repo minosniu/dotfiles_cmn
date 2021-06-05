@@ -57,7 +57,7 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      ;; syntax-checking
-     ;; version-control
+     version-control
      games
      )
    ;; List of additional packages that will be installed without being

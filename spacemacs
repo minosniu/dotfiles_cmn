@@ -91,6 +91,7 @@ values."
   (setq configuration-layer-elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("nongnu"   . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/nongnu/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq-default
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
